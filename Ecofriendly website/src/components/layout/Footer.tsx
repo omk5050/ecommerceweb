@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,11 +7,29 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="font-serif text-2xl font-bold tracking-tight text-ivory mb-4 block">
-              EARTHFORM
+            <Link href="/" className="flex items-center gap-3 mb-4 group">
+              <div className="relative w-12 h-12 overflow-hidden rounded-full bg-ivory/10 border border-ivory/20 shadow-sm flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="SUGRAVA Logo" 
+                  fill 
+                  className="object-cover" 
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-2xl font-bold tracking-wider text-ivory leading-none">
+                  SUGRAVA<span className="text-[10px] align-top font-sans font-normal ml-0.5">™</span>
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-sans mt-0.5">
+                  Goodness Beyond Waste
+                </span>
+              </div>
             </Link>
-            <p className="text-sm text-beige/80 max-w-sm mb-6 leading-relaxed">
-              From Sugarcane Waste to a Better Tomorrow. Thoughtfully crafted bagasse products designed for everyday use.
+            <p className="text-sm text-beige/85 max-w-sm mb-2 leading-relaxed">
+              Because Every Leftover Deserves a Purpose. Thoughtfully crafted 100% sugarcane bagasse tableware designed for everyday dining.
+            </p>
+            <p className="text-xs text-beige/60 max-w-sm mb-6 leading-relaxed italic">
+              A more thoughtful choice for everyday dining.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-beige/80 hover:text-ivory transition-colors font-medium text-sm">
@@ -66,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-beige/20 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-beige/60">
-          <p>© 2026 EARTHFORM. All rights reserved.</p>
+          <p>© 2026 SUGRAVA™. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-ivory transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-ivory transition-colors">Terms of Service</Link>

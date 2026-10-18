@@ -13,8 +13,12 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "EARTHFORM — Crafted by Nature",
-  description: "From Sugarcane Waste to a Better Tomorrow. Discover thoughtfully crafted bagasse products made from sugarcane residue.",
+  title: "SUGRAVA™ — Goodness Beyond Waste | Better by Nature",
+  description: "SUGRAVA™ crafts premium tableware and food packaging from 100% renewable sugarcane bagasse. Because every leftover deserves a purpose.",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({

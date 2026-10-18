@@ -30,9 +30,14 @@ export default function ShopPage() {
     <main className="min-h-screen flex flex-col bg-ivory">
       <Navbar />
       
-      <div className="bg-forest py-20 text-center text-ivory">
-        <h1 className="font-serif text-4xl md:text-5xl mb-4">Shop All Collections</h1>
-        <p className="text-ivory/80 max-w-xl mx-auto">Discover our complete range of premium, sustainable bagasse products designed to elevate your everyday meals.</p>
+      <div className="bg-forest py-16 text-center text-ivory relative overflow-hidden">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ivory/10 border border-ivory/20 text-gold text-xs font-medium tracking-widest uppercase mb-4">
+          BAGASSE | BETTER BY NATURE
+        </div>
+        <h1 className="font-serif text-4xl md:text-5xl mb-3 tracking-tight">SUGRAVA™ Collections</h1>
+        <p className="text-ivory/80 max-w-xl mx-auto text-sm sm:text-base font-light">
+          A more thoughtful choice for everyday dining. Discover our complete range of certified food-safe bagasse tableware.
+        </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 flex-grow w-full">

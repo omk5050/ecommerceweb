@@ -8,7 +8,7 @@ export default function SustainabilityPage() {
       <div className="max-w-4xl mx-auto px-6 md:px-12 py-20 text-charcoal flex-grow">
         <h1 className="font-serif text-4xl md:text-5xl mb-8">Sustainability Impact</h1>
         <p className="text-lg leading-relaxed mb-8">
-          At EARTHFORM, sustainability is not just a buzzword—it is the foundation of our entire manufacturing and operational philosophy. We are dedicated to providing transparency regarding the environmental footprint of our products.
+          At SUGRAVA™, sustainability is not just a buzzword—it is the foundation of our entire manufacturing and operational philosophy. We are dedicated to providing transparency regarding the environmental footprint of our products.
         </p>
         
         <div className="bg-sage p-8 rounded-md text-forest mb-12">

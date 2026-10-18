@@ -17,7 +17,7 @@ export default function StoryPage() {
       <div className="max-w-4xl mx-auto px-6 md:px-12 py-20 text-charcoal flex-grow">
         <h2 className="font-serif text-3xl mb-6">Our Origins</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The concept for EARTHFORM was born from a simple observation: nature creates elegant solutions to complex problems. When we looked at the agricultural industry, specifically sugarcane farming, we saw an incredible resource being overlooked. After the sweet juice is extracted, fibrous stalks remain. Historically, this "waste" was burned or discarded, releasing carbon back into the atmosphere without serving a second purpose.
+          The concept for SUGRAVA™ was born from a simple observation: nature creates elegant solutions to complex problems. Because every leftover deserves a purpose. When we looked at the agricultural industry, specifically sugarcane farming, we saw an incredible resource being overlooked. After the sweet juice is extracted, fibrous stalks remain. Historically, this "waste" was burned or discarded, releasing carbon back into the atmosphere without serving a second purpose.
         </p>
         
         <p className="text-lg leading-relaxed mb-12">

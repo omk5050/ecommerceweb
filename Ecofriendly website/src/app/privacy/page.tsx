@@ -9,7 +9,7 @@ export default function GenericTextPage() {
         <h1 className="font-serif text-4xl mb-8">Privacy Policy</h1>
         <div className="prose prose-sm prose-stone text-charcoal/80">
           <p>Last updated: October 10, 2026</p>
-          <p>At EARTHFORM, we take your privacy seriously. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.</p>
+          <p>At SUGRAVA™, we take your privacy seriously. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.</p>
           
           <h3 className="font-serif text-xl mt-6 mb-2">Personal Information We Collect</h3>
           <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device.</p>

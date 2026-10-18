@@ -32,7 +32,7 @@ export default function ContactPage() {
           
           <div>
             <h3 className="font-serif text-xl mb-4">Direct Contact</h3>
-            <p className="text-sm text-charcoal/70 mb-2">Email: hello@earthform.com</p>
+            <p className="text-sm text-charcoal/70 mb-2">Email: hello@sugrava.com</p>
             <p className="text-sm text-charcoal/70 mb-6">Phone: +91 123 456 7890</p>
             
             <h3 className="font-serif text-xl mb-4">Office</h3>

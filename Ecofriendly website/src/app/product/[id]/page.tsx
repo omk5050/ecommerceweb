@@ -86,7 +86,8 @@ function ProductContent({ params }: { params: Promise<{ id: string }> }) {
     );
   }
 
-  const images = [product.image, "/images/hero.jpg", "/images/bowls.jpg"];
+  const fallbackImages = ["/images/hero.jpg", "/images/bowls.jpg", "/images/plates.jpg"];
+  const images = (product?.image ? [product.image, "/images/hero.jpg", "/images/bowls.jpg"] : fallbackImages).filter(Boolean);
 
   return (
     <main className="min-h-screen flex flex-col bg-ivory">
@@ -128,6 +129,9 @@ function ProductContent({ params }: { params: Promise<{ id: string }> }) {
 
           <div className="flex flex-col">
             <div className="mb-8">
+              <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-cocoa bg-beige/60 px-3 py-1 rounded-full mb-3 border border-cocoa/20">
+                100% Bagasse · Better by Nature
+              </span>
               <h1 className="font-serif text-3xl md:text-5xl text-charcoal mb-4">{product.name}</h1>
               <p className="font-serif text-2xl text-charcoal font-medium mb-6">₹{product.price}</p>
               <p className="text-charcoal/70 leading-relaxed mb-6">

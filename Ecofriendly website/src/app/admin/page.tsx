@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import ProductForm from "@/components/admin/ProductForm";
@@ -513,9 +514,21 @@ export default function AdminDashboard() {
         {/* Sidebar */}
         <aside className="w-full md:w-64 bg-forest text-ivory p-6 shrink-0 flex flex-col">
           {/* Brand */}
-          <div className="flex items-center gap-2 mb-2">
-            <Leaf className="w-5 h-5 text-sugarcane" aria-hidden="true" />
-            <h2 className="font-serif text-2xl font-bold">Admin Portal</h2>
+          <div className="flex items-center gap-2.5 mb-2">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/20 shadow-sm flex-shrink-0">
+              <Image 
+                src="/images/logo.png" 
+                alt="SUGRAVA Logo" 
+                fill 
+                className="object-cover" 
+              />
+            </div>
+            <div>
+              <h2 className="font-serif text-xl font-bold tracking-wide leading-none">
+                SUGRAVA<span className="text-[10px] align-top font-sans font-normal ml-0.5">™</span>
+              </h2>
+              <span className="text-[9px] uppercase tracking-widest text-gold font-sans block">Admin Portal</span>
+            </div>
           </div>
 
           {/* Current admin */}

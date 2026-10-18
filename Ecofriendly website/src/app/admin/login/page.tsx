@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, FormEvent } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Loader2, Leaf, Eye, EyeOff, AlertCircle } from "lucide-react";
 import { login, getMe } from "@/lib/authApi";
@@ -80,13 +81,19 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md">
         {/* Brand mark */}
         <div className="flex flex-col items-center mb-8 gap-2">
-          <div className="w-14 h-14 rounded-2xl bg-sugarcane/20 border border-sugarcane/30 flex items-center justify-center shadow-lg">
-            <Leaf className="w-7 h-7 text-sugarcane" aria-hidden="true" />
+          <div className="relative w-16 h-16 rounded-full overflow-hidden border border-white/20 shadow-xl flex-shrink-0">
+            <Image 
+              src="/images/logo.png" 
+              alt="SUGRAVA Logo" 
+              fill 
+              className="object-cover" 
+              priority
+            />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-ivory tracking-tight">
-            Earthform
+          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-ivory tracking-wider">
+            SUGRAVA™
           </h1>
-          <p className="text-sm text-ivory/50 font-medium tracking-widest uppercase">
+          <p className="text-xs text-gold/90 font-medium tracking-widest uppercase">
             Admin Portal
           </p>
         </div>
@@ -206,8 +213,8 @@ export default function AdminLoginPage() {
         </div>
 
         {/* Footer */}
-        <p className="mt-6 text-center text-xs text-ivory/25">
-          Earthform Admin · Restricted access only
+        <p className="mt-6 text-center text-xs text-ivory/30">
+          SUGRAVA™ Admin · Restricted access only
         </p>
       </div>
     </div>

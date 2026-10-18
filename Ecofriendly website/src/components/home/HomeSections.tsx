@@ -26,24 +26,27 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-ivory font-medium tracking-tight mb-6 text-balance">
-            Waste Less.<br />Live Better.
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ivory/15 backdrop-blur-sm border border-ivory/30 text-ivory text-xs font-medium tracking-widest uppercase mb-6">
+            <span className="text-gold">✦</span> GOODNESS BEYOND WASTE
+          </div>
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-7xl text-ivory font-medium tracking-tight mb-6 text-balance leading-[1.1]">
+            Because Every Leftover<br />Deserves a Purpose.
           </h1>
-          <p className="text-lg md:text-xl text-ivory/90 mb-10 max-w-2xl text-balance font-light leading-relaxed">
-            Discover thoughtfully crafted bagasse products made from sugarcane residue — a renewable resource transformed into everyday essentials.
+          <p className="text-base sm:text-lg md:text-xl text-ivory/90 mb-10 max-w-2xl text-balance font-light leading-relaxed">
+            Thoughtfully crafted 100% sugarcane bagasse tableware and sustainable food packaging — better for your table, better by nature.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <Link 
               href="/collections" 
-              className="px-8 py-4 bg-ivory text-forest font-medium rounded-sm hover:bg-white transition-all shadow-lg hover:shadow-xl w-full sm:w-auto text-center"
+              className="px-8 py-4 bg-forest text-ivory font-medium rounded-sm border border-forest hover:bg-sugarcane transition-all shadow-lg hover:shadow-xl w-full sm:w-auto text-center tracking-wide"
             >
-              Explore Our Collection
+              Explore All Collections
             </Link>
             <Link 
               href="/story" 
-              className="px-8 py-4 bg-transparent border border-ivory text-ivory font-medium rounded-sm hover:bg-ivory/10 transition-all w-full sm:w-auto text-center"
+              className="px-8 py-4 bg-ivory/95 text-forest font-medium rounded-sm border border-ivory hover:bg-white transition-all shadow-md w-full sm:w-auto text-center tracking-wide"
             >
-              Discover Our Story
+              Our Sugarcane Story
             </Link>
           </div>
         </motion.div>
@@ -98,6 +101,9 @@ export function FeaturedCollections() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
+            <span className="text-xs uppercase tracking-widest text-sugarcane font-semibold mb-2 block">
+              BAGASSE | BETTER BY NATURE
+            </span>
             <h2 className="font-serif text-3xl md:text-5xl text-charcoal mb-4">Shop by Category</h2>
             <p className="text-charcoal/70 max-w-xl">Curated collections of premium bagasse products to suit your lifestyle and business needs.</p>
           </div>
@@ -109,7 +115,7 @@ export function FeaturedCollections() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {collections.map((item, idx) => (
             <Link key={idx} href={item.href} className="group block">
-              <div className="relative aspect-[4/5] mb-4 overflow-hidden rounded-md bg-beige">
+              <div className="relative aspect-[4/5] mb-4 overflow-hidden rounded-md bg-beige border border-beige/60 group-hover:border-gold/50 transition-colors">
                 <Image 
                   src={item.image} 
                   alt={item.name} 
@@ -117,7 +123,7 @@ export function FeaturedCollections() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <h3 className="font-serif text-xl text-charcoal mb-1">{item.name}</h3>
+              <h3 className="font-serif text-xl text-charcoal mb-1 group-hover:text-forest transition-colors">{item.name}</h3>
               <p className="text-sm text-charcoal/60">{item.desc}</p>
             </Link>
           ))}
@@ -138,11 +144,16 @@ export function Bestsellers() {
   return (
     <section className="py-24 bg-beige/30">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="font-serif text-3xl md:text-5xl text-center text-charcoal mb-16">Trending Essentials</h2>
+        <div className="text-center mb-16">
+          <span className="text-xs uppercase tracking-widest text-sugarcane font-semibold mb-2 block">
+            A MORE THOUGHTFUL CHOICE FOR EVERYDAY DINING
+          </span>
+          <h2 className="font-serif text-3xl md:text-5xl text-charcoal">Trending Essentials</h2>
+        </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <div key={product.id} className="group flex flex-col bg-ivory rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div key={product.id} className="group flex flex-col bg-ivory rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-beige/60">
               <div className="relative aspect-square overflow-hidden bg-beige">
                 <Image 
                   src={product.image} 
@@ -157,6 +168,9 @@ export function Bestsellers() {
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
+                <span className="text-[10px] tracking-wider uppercase font-medium px-2 py-0.5 rounded-full bg-forest/10 text-forest w-fit mb-2">
+                  100% Bagasse · Food Safe
+                </span>
                 <h3 className="font-medium text-charcoal mb-1">{product.name}</h3>
                 <p className="text-sm text-charcoal/60 mb-3">{product.desc}</p>
                 <div className="mt-auto flex items-center justify-between">
@@ -171,7 +185,7 @@ export function Bestsellers() {
         </div>
         
         <div className="mt-16 text-center">
-          <Link href="/shop" className="inline-block px-8 py-3 bg-charcoal text-ivory font-medium rounded-sm hover:bg-forest transition-colors">
+          <Link href="/shop" className="inline-block px-8 py-3 bg-charcoal text-ivory font-medium rounded-sm hover:bg-forest transition-colors shadow-sm">
             Shop All Products
           </Link>
         </div>
@@ -191,22 +205,25 @@ export function StorySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-serif text-3xl md:text-5xl mb-6">Giving Sugarcane Residue a New Purpose.</h2>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ivory/10 border border-ivory/20 text-gold text-xs font-medium tracking-widest uppercase mb-6">
+              SUGRAVA™ ORIGINS
+            </div>
+            <h2 className="font-serif text-3xl md:text-5xl mb-6">Giving Sugarcane Residue a Real Purpose.</h2>
             <p className="text-ivory/80 text-lg mb-8 leading-relaxed">
-              Our journey begins in the sugarcane fields. After the juice is extracted, the remaining fibrous residue—known as bagasse—is often discarded or burned. We transform this abundant agricultural byproduct into premium, practical everyday products.
+              At SUGRAVA™, our journey begins in the sugarcane fields. After the juice is extracted, the remaining fibrous residue—known as bagasse—is often discarded or burned. We transform this abundant agricultural byproduct into premium, practical everyday tableware.
             </p>
             
             <div className="space-y-8">
               {[
                 { step: "01", title: "Harvest & Extraction", desc: "Sugarcane is harvested and pressed for juice, leaving behind the fibrous stalks." },
-                { step: "02", title: "Pulping & Molding", desc: "The bagasse fibers are cleaned, pulped, and thermoformed into elegant shapes." },
-                { step: "03", title: "Quality & Delivery", desc: "Finished products are rigorously checked for durability before reaching your table." }
+                { step: "02", title: "Pulping & Molding", desc: "The bagasse fibers are cleaned, pulped, and thermoformed into durable shapes." },
+                { step: "03", title: "Quality & Delivery", desc: "Finished tableware is rigorously inspected for strength before reaching your dining table." }
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-6">
-                  <div className="font-serif text-xl text-sugarcane font-bold">{item.step}</div>
+                  <div className="font-serif text-xl text-gold font-bold">{item.step}</div>
                   <div>
                     <h3 className="font-medium text-lg mb-1">{item.title}</h3>
-                    <p className="text-ivory/60 text-sm">{item.desc}</p>
+                    <p className="text-ivory/70 text-sm">{item.desc}</p>
                   </div>
                 </div>
               ))}
