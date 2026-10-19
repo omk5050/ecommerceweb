@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Search, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { getApiBaseUrl } from "@/lib/apiConfig";
 
 const CATEGORIES = [
   "All",
@@ -43,7 +44,7 @@ function CollectionsContent() {
   }, [initialCategory]);
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch(`${getApiBaseUrl()}/api/products?limit=100`)
       .then((res) => res.json())
       .then((data) => {
         const list = Array.isArray(data) ? data : data?.data || [];
@@ -202,10 +203,10 @@ function CollectionsContent() {
                       {product.description}
                     </p>
                     <div className="mt-auto pt-2 border-t border-beige/50 flex items-center justify-between">
-                      <span className="font-serif font-semibold text-lg text-forest">
-                        ₹{product.price}
+                      <span className="text-[11px] text-charcoal/50 font-medium tracking-wide">
+                        {product.material || "100% Bagasse"}
                       </span>
-                      <span className="text-xs text-sugarcane group-hover:text-forest font-medium">
+                      <span className="text-xs text-sugarcane group-hover:text-forest font-medium transition-colors">
                         View Details →
                       </span>
                     </div>

@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ChevronRight, Minus, Plus, Heart, Check, ShieldCheck, Leaf, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { getApiBaseUrl } from "@/lib/apiConfig";
 
 function ProductContent({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
@@ -24,7 +25,7 @@ function ProductContent({ params }: { params: Promise<{ id: string }> }) {
   const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
-    fetch(`/api/products/${productId}`)
+    fetch(`${getApiBaseUrl()}/api/products/${productId}`)
       .then(res => res.json())
       .then(data => {
         const prod = data?.data || data;

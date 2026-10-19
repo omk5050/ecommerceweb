@@ -91,7 +91,7 @@ export function ValueStrip() {
 export function FeaturedCollections() {
   const collections = [
     { name: "Bagasse Plates", desc: "Durable and elegant", image: "/images/plates.jpg", href: "/collections/plates" },
-    { name: "Bagasse Bowls", desc: "Perfect for soups and salads", image: "/images/bowls.jpg", href: "/collections/bowls" },
+    { name: "Bagasse Bowls", desc: "Perfect for soups and salads", image: "/products/240ml-round-bowl.png", href: "/collections/bowls" },
     { name: "Food Containers", desc: "Secure and practical", image: "/images/containers.jpg", href: "/collections/containers" },
     { name: "Cups and Trays", desc: "For everyday essentials", image: "/images/cups.jpg", href: "/collections/cups" },
   ];
@@ -135,10 +135,10 @@ export function FeaturedCollections() {
 
 export function Bestsellers() {
   const products = [
-    { id: 1, name: "Premium Classic Plate 9\"", desc: "Pack of 50", price: "450", image: "/images/plates.jpg" },
-    { id: 2, name: "Deep Salad Bowl 500ml", desc: "Pack of 50", price: "550", image: "/images/bowls.jpg" },
-    { id: 3, name: "Clamshell Container 3-Comp", desc: "Pack of 50", price: "750", image: "/images/containers.jpg" },
-    { id: 4, name: "Everyday Cup 250ml", desc: "Pack of 100", price: "350", image: "/images/cups.jpg" },
+    { id: 1, name: "Premium Classic Plate 9\"", desc: "Pack of 50", image: "/images/plates.jpg" },
+    { id: 2, name: "Deep Salad Bowl 500ml", desc: "Pack of 50", image: "/products/240ml-round-bowl.png" },
+    { id: 3, name: "Clamshell Container 3-Comp", desc: "Pack of 50", image: "/images/containers.jpg" },
+    { id: 4, name: "Everyday Cup 250ml", desc: "Pack of 100", image: "/images/cups.jpg" },
   ];
 
   return (
@@ -162,9 +162,9 @@ export function Bestsellers() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-charcoal/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
-                  <button className="bg-ivory text-charcoal px-6 py-2 text-sm font-medium rounded-sm shadow-sm hover:bg-forest hover:text-ivory transition-colors">
-                    Quick View
-                  </button>
+                  <Link href="/collections" className="bg-ivory text-charcoal px-6 py-2 text-sm font-medium rounded-sm shadow-sm hover:bg-forest hover:text-ivory transition-colors">
+                    View Product
+                  </Link>
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
@@ -173,11 +173,11 @@ export function Bestsellers() {
                 </span>
                 <h3 className="font-medium text-charcoal mb-1">{product.name}</h3>
                 <p className="text-sm text-charcoal/60 mb-3">{product.desc}</p>
-                <div className="mt-auto flex items-center justify-between">
-                  <span className="font-serif font-medium text-lg text-charcoal">₹{product.price}</span>
-                  <button className="text-sugarcane hover:text-forest p-2">
-                    <Plus className="w-5 h-5" />
-                  </button>
+                <div className="mt-auto pt-2 border-t border-beige/50 flex items-center justify-between">
+                  <span className="text-xs text-charcoal/60 font-medium">100% Bagasse</span>
+                  <Link href="/collections" className="text-xs text-sugarcane group-hover:text-forest font-medium flex items-center gap-1 transition-colors">
+                    View Product →
+                  </Link>
                 </div>
               </div>
             </div>

@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,24 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Ensure client-side route changes start at scroll position 0
+  useEffect(() => {
+    if (typeof window !== "undefined" && !window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [pathname]);
+
+  const handleNavClick = (href: string) => {
+    // If navigation targets an anchor/hash on the SAME page, preserve normal anchor behavior
+    if (href.startsWith("#") || (pathname && href.startsWith(`${pathname}#`))) {
+      return;
+    }
+    // For navigation to a different page/route or clicking current page
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -50,7 +70,12 @@ export default function Navbar() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link
+            href="/"
+            scroll={true}
+            onClick={() => handleNavClick("/")}
+            className="flex items-center gap-2.5 group"
+          >
             <div className="relative w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-full border border-forest/15 shadow-sm group-hover:scale-105 transition-transform flex-shrink-0">
               <Image 
                 src="/images/logo.png" 
@@ -76,6 +101,8 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
+                scroll={true}
+                onClick={() => handleNavClick(link.href)}
                 className="text-sm font-medium text-charcoal/80 hover:text-sugarcane transition-colors"
               >
                 {link.name}
@@ -83,20 +110,16 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Icons */}
-          <div className="flex items-center gap-5">
-            <button className="text-charcoal hover:text-sugarcane transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            <button className="hidden sm:block text-charcoal hover:text-sugarcane transition-colors">
-              <User className="w-5 h-5" />
-            </button>
-            <button className="text-charcoal hover:text-sugarcane transition-colors relative">
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1.5 -right-1.5 bg-sugarcane text-ivory text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                0
-              </span>
-            </button>
+          {/* Showcase CTA: Request a Quote */}
+          <div className="flex items-center">
+            <Link
+              href="/b2b"
+              scroll={true}
+              onClick={() => handleNavClick("/b2b")}
+              className="px-3.5 py-1.5 sm:px-5 sm:py-2 bg-forest text-ivory text-xs sm:text-sm font-medium rounded-full hover:bg-forest/90 transition-all duration-200 shadow-sm hover:shadow tracking-wide whitespace-nowrap"
+            >
+              Request a Quote
+            </Link>
           </div>
         </div>
       </header>
@@ -137,18 +160,35 @@ export default function Navbar() {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            <nav className="flex flex-col gap-6 p-6">
+            <nav className="flex flex-col gap-6 p-6 flex-grow">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  scroll={true}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    handleNavClick(link.href);
+                  }}
                   className="text-2xl font-serif text-charcoal hover:text-sugarcane"
                 >
                   {link.name}
                 </Link>
               ))}
             </nav>
+            <div className="p-6 border-t border-beige">
+              <Link
+                href="/b2b"
+                scroll={true}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavClick("/b2b");
+                }}
+                className="w-full inline-flex items-center justify-center py-3 px-4 bg-forest text-ivory text-sm font-medium rounded-md hover:bg-forest/90 transition-colors shadow-sm text-center"
+              >
+                Request a Quote
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
