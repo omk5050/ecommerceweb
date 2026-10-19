@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Lock } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -86,10 +87,18 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-beige/20 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-beige/60">
           <p>© 2026 SUGRAVA™. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-ivory transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-ivory transition-colors">Terms of Service</Link>
             <Link href="/shipping" className="hover:text-ivory transition-colors">Shipping & Returns</Link>
+            <Link 
+              href="/admin/login" 
+              className="text-beige/30 hover:text-beige/70 transition-colors p-1"
+              aria-label="Staff Portal"
+              title="Staff Portal"
+            >
+              <Lock className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </div>

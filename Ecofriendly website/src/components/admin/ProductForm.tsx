@@ -379,14 +379,25 @@ export default function ProductForm({
               <input
                 id="pf-category"
                 type="text"
+                list="category-suggestions"
                 className={inputCls}
                 value={form.category}
                 onChange={(e) => setField("category", e.target.value)}
-                placeholder="e.g. Plates"
+                placeholder="e.g. Plates, Bowls, Cutlery"
                 disabled={submitting}
                 aria-required="true"
                 aria-describedby={fieldErrors.category ? "err-category" : undefined}
               />
+              <datalist id="category-suggestions">
+                <option value="Bowls" />
+                <option value="Plates" />
+                <option value="Takeaway Boxes" />
+                <option value="Cups" />
+                <option value="Cup Lids" />
+                <option value="Cutlery" />
+                <option value="Containers" />
+                <option value="Meal Trays" />
+              </datalist>
               {fieldErrors.category && (
                 <p id="err-category" className={errorCls} role="alert">
                   {fieldErrors.category}

@@ -86,8 +86,7 @@ function ProductContent({ params }: { params: Promise<{ id: string }> }) {
     );
   }
 
-  const fallbackImages = ["/images/hero.jpg", "/images/bowls.jpg", "/images/plates.jpg"];
-  const images = (product?.image ? [product.image, "/images/hero.jpg", "/images/bowls.jpg"] : fallbackImages).filter(Boolean);
+  const images = (product?.image ? [product.image] : ["/images/hero.jpg"]).filter(Boolean);
 
   return (
     <main className="min-h-screen flex flex-col bg-ivory">
@@ -114,17 +113,19 @@ function ProductContent({ params }: { params: Promise<{ id: string }> }) {
             >
               <Image src={mainImage || product.image} alt={product.name} fill className="object-cover" />
             </motion.div>
-            <div className="flex gap-4 overflow-x-auto pb-2">
-              {images.map((img, idx) => (
-                <button 
-                  key={idx}
-                  onClick={() => setMainImage(img)}
-                  className={`relative w-20 h-20 md:w-24 md:h-24 rounded-sm overflow-hidden flex-shrink-0 border-2 transition-colors ${mainImage === img ? 'border-forest' : 'border-transparent'}`}
-                >
-                  <Image src={img} alt={`Gallery ${idx}`} fill className="object-cover" />
-                </button>
-              ))}
-            </div>
+            {images.length > 1 && (
+              <div className="flex gap-4 overflow-x-auto pb-2">
+                {images.map((img, idx) => (
+                  <button 
+                    key={idx}
+                    onClick={() => setMainImage(img)}
+                    className={`relative w-20 h-20 md:w-24 md:h-24 rounded-sm overflow-hidden flex-shrink-0 border-2 transition-colors ${mainImage === img ? 'border-forest' : 'border-transparent'}`}
+                  >
+                    <Image src={img} alt={`Gallery ${idx}`} fill className="object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col">

@@ -12,6 +12,7 @@
     "start:frontend": "next start",
     "seed:admin": "npm --prefix backend run seed:admin",
     "seed:admin:prod": "npm --prefix backend run seed:admin:prod",
+    "seed:products": "npm --prefix backend run seed:products",
     "lint": "eslint"
   },
   "dependencies": {

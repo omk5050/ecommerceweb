@@ -11,7 +11,7 @@ import { uploadImageToCloudinary, deleteImageFromCloudinary } from '../services/
 export const getProducts = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const page = Math.max(1, parseInt(req.query.page as string, 10) || 1);
-    const rawLimit = parseInt(req.query.limit as string, 10) || 20;
+    const rawLimit = parseInt(req.query.limit as string, 10) || 100;
     const limit = Math.min(100, Math.max(1, rawLimit)); // clamp between 1 and 100
     const skip = (page - 1) * limit;
 

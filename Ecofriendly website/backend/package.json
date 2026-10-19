@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "seed:admin": "tsx src/scripts/seedAdmin.ts",
-    "seed:admin:prod": "node dist/scripts/seedAdmin.js"
+    "seed:admin:prod": "node dist/scripts/seedAdmin.js",
+    "seed:products": "tsx src/scripts/seedProducts.ts"
   },
   "keywords": [
     "earthform",

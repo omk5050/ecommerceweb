@@ -76,8 +76,8 @@ function extractError(
  */
 export async function fetchProducts(includeInactive = false): Promise<Product[]> {
   const url = includeInactive
-    ? `${BASE_URL}/api/products?includeInactive=true`
-    : `${BASE_URL}/api/products`;
+    ? `${BASE_URL}/api/products?includeInactive=true&limit=100`
+    : `${BASE_URL}/api/products?limit=100`;
 
   const res = await fetch(url, {
     cache: "no-store",
